@@ -1,0 +1,14 @@
+ServerAliveInterval 60
+
+Host portal 
+	HostName 200.19.106.132
+	User labp2d
+	IdentitiesOnly=yes
+	IdentityFile /home/caloio/.ssh/u12258025982.key
+
+Host labp2d
+	HostName 10.20.221.235
+	User u12258025982
+	IdentitiesOnly=yes
+	IdentityFile /home/caloio/.ssh/u12258025982.key
+	ProxyJump portal
