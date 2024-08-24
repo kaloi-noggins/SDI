@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf ./build && tsc",
-    "start_dev": "npm run build && nodemon build/ip_multicast.js"
+    "start_dev": "nodemon build/ip_multicast.js"
   },
   "author": "kalyl henings",
   "license": "GPL-3.0-only",

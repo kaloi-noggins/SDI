@@ -1,8 +1,0 @@
-
-# Contabilizador de Números Usando Multicast
-
-O trabalho deve obrigatoriamente usar Multicast IP para contabilizar números.
-Cada processo enviará periodicamente um inteiro no intervalo [1, 10].
-A cada X segundos (2, por exemplo), os processos devem verificar qual o inteiro com maior frequência e informar localmente (saída padrão).
-
-Desenvolvimento: duplas
