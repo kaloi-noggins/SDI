@@ -1,17 +1,19 @@
+package pacote;
 /*
  * O cliente deve executar as operações com as matrizes e salvar os dados (recuperar e por fim excluir o arquivo)
  */
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import javax.jws.WebService;
 
-import pacote.IDatabase;
-import pacote.IMatrix;
+@WebService(endpointInterface = "pacote.ClientInterface")
+public class ClientImpl implements ClientInterface {
+    
+    public void start() {
 
-public class Client {
-    public static void main(String[] args) {
-        String hostM = args[0];
-        String hostDB = args[1];
+        String hostM = "127.0.0.1";
+        String hostDB = "127.0.0.1";
 
         final int DATABASE_SERVER_PORT = 8002;
         final int MATRIX_SERVER_PORT = 8001;

@@ -5,19 +5,24 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf ./build && tsc",
-    "start": "node build/ip_multicast.js",
-    "start_dev": "nodemon build/ip_multicast.js"
+    "producer": "node build/producer.js",
+    "consumer:OPERADOR_1": "node build/consumer.js OPERADOR_1",
+    "consumer:OPERADOR_2": "node build/consumer.js OPERADOR_2",
+    "consumer:OPERADOR_3": "node build/consumer.js OPERADOR_3",
+    "consumer:NAO_INDENTIFICADO": "node build/consumer.js NAO_INDENTIFICADO"
   },
   "author": "kalyl henings",
   "license": "GPL-3.0-only",
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@types/amqplib": "^0.10.5",
     "@types/node": "^22.5.0",
     "eslint": "^9.9.0",
     "nodemon": "^3.1.4",
     "typescript": "^5.5.4"
   },
   "dependencies": {
+    "amqplib": "^0.10.4",
     "dotenv": "^16.4.5"
   }
 }
