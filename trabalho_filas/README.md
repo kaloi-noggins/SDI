@@ -6,11 +6,11 @@ O presente trabalho simula um pedágio com multiplos operadores (empresas que fo
 export interface Vehicle {
   licensePlate: string;
   vehicleCategory: "A" | "B" | "C" | "D" | "E";
-  operator: "OPERADOR_1" | "OPERADOR_2" | "OPERADOR_3" | "NAO_INDENTIFICADO";
+  operator: "OPERADOR_1" | "OPERADOR_2" | "OPERADOR_3" | "NAO_IDENTIFICADO";
 }
 ```
 
-Existem 4 operadores, _OPERADOR_1_, _OPERADOR_2_, _OPERADOR_3_, que representam operadores quaisquer, eum 4ºchamadao _NAO_INDENTIFICADO_, que representa o operador que recebe os veículos que não possuem/não tiveram suas tags identificadas no pedágio, e que aplica uma multa nos veículos.
+Existem 4 operadores, _OPERADOR_1_, _OPERADOR_2_, _OPERADOR_3_, que representam operadores quaisquer, eum 4ºchamadao _NAO_IDENTIFICADO_, que representa o operador que recebe os veículos que não possuem/não tiveram suas tags identificadas no pedágio, e que aplica uma multa nos veículos.
 
 No repositório, há os seguintes arquivos importantes:
 
@@ -23,7 +23,7 @@ No repositório, há os seguintes arquivos importantes:
   OPERADOR_1_PRICES='{"A":4,"B":6,"C":9,"D":12,"E":22}'
   OPERADOR_2_PRICES='{"A":4.5,"B":7,"C":10.15,"D":14,"E":20}'
   OPERADOR_3_PRICES='{"A":3.5,"B":5.5,"C":8.5,"D":12,"E":25}'
-  NAO_INDENTIFICADO_PRICES='{"A":150,"B":150,"C":150,"D":150,"E":150}'
+  NAO_IDENTIFICADO_PRICES='{"A":150,"B":150,"C":150,"D":150,"E":150}'
   ```
 
   - RABBITMQ_HOST: Host do RabbitMQ
@@ -32,7 +32,7 @@ No repositório, há os seguintes arquivos importantes:
   - OPERADOR_1_PRICES: Preços praticados pelo OPERADOR_1, para cada um das categorias de veículos.
   - OPERADOR_2_PRICES: Preços praticados pelo OPERADOR_2, para cada um das categorias de veículos.
   - OPERADOR_3_PRICES: Preços praticados pelo OPERADOR_3, para cada um das categorias de veículos.
-  - NAO_INDENTIFICADO_PRICES: Preços praticados pelo NAO_INDENTIFICADO, para cada um das categorias de veículos, representando as multas aplicadas.
+  - NAO_IDENTIFICADO_PRICES: Preços praticados pelo NAO_IDENTIFICADO, para cada um das categorias de veículos, representando as multas aplicadas.
 
     Segue a definição de preços utilizada, presente em src/types/vehicle.ts:
 
@@ -77,7 +77,7 @@ Além disso, é necessário uma [instância de RabbitMQ](https://www.rabbitmq.co
 - Vá para a pasta raiz do projeto
 - Execute `npm install` para instalar as dependências do projeto
 - Execute `npm run build` para compilar o projeto
-- Execute `npm run consumer:NOME_OPERADOR` em um terminal (ou máquina remota) para executar o programa, onde `NOME_OPERADOR` é o nome de um dos operadores em [`OPERADOR_1`, `OPERADOR_2`, `OPERADOR_3`, `NAO_INDENTIFICADO`]
+- Execute `npm run consumer:NOME_OPERADOR` em um terminal (ou máquina remota) para executar o programa, onde `NOME_OPERADOR` é o nome de um dos operadores em [`OPERADOR_1`, `OPERADOR_2`, `OPERADOR_3`, `NAO_IDENTIFICADO`]
 - Execute o passo anterior para cada um dos operadores listados
 - Execute `npm run producer` para iniciar a produção das mensagens
 
