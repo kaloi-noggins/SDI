@@ -1,0 +1,24 @@
+{
+  "totalVehicleCount": 3,
+  "totalToll": 27.5,
+  "A": {
+    "vehiclesCount": 1,
+    "tollCount": 3.5
+  },
+  "B": {
+    "vehiclesCount": 0,
+    "tollCount": 0
+  },
+  "C": {
+    "vehiclesCount": 0,
+    "tollCount": 0
+  },
+  "D": {
+    "vehiclesCount": 2,
+    "tollCount": 24
+  },
+  "E": {
+    "vehiclesCount": 0,
+    "tollCount": 0
+  }
+}

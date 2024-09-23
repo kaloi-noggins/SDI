@@ -1,0 +1,3 @@
+{"licensePlate":"D4DFHLM","vehicleCategory":"A","operator":"OPERADOR_1"}
+{"licensePlate":"TI63U75","vehicleCategory":"C","operator":"OPERADOR_1"}
+{"licensePlate":"BY5R2OZ","vehicleCategory":"C","operator":"OPERADOR_1"}

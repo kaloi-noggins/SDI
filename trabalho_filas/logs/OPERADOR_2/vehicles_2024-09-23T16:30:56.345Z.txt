@@ -1,0 +1,2 @@
+{"licensePlate":"ODD0QL6","vehicleCategory":"A","operator":"OPERADOR_2"}
+{"licensePlate":"63BOE0Z","vehicleCategory":"B","operator":"OPERADOR_2"}

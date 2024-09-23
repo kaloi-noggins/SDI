@@ -1,0 +1,10 @@
+{"licensePlate":"D4DFHLM","vehicleCategory":"A","operator":"OPERADOR_1"}
+{"licensePlate":"IRL332B","vehicleCategory":"C","operator":"NAO_IDENTIFICADO"}
+{"licensePlate":"ODD0QL6","vehicleCategory":"A","operator":"OPERADOR_2"}
+{"licensePlate":"YPYPN8UF","vehicleCategory":"A","operator":"OPERADOR_3"}
+{"licensePlate":"RN5ZXO3K","vehicleCategory":"D","operator":"OPERADOR_3"}
+{"licensePlate":"FOVCVRNJ","vehicleCategory":"A","operator":"NAO_IDENTIFICADO"}
+{"licensePlate":"TI63U75","vehicleCategory":"C","operator":"OPERADOR_1"}
+{"licensePlate":"BY5R2OZ","vehicleCategory":"C","operator":"OPERADOR_1"}
+{"licensePlate":"63BOE0Z","vehicleCategory":"B","operator":"OPERADOR_2"}
+{"licensePlate":"N34F22I","vehicleCategory":"D","operator":"OPERADOR_3"}

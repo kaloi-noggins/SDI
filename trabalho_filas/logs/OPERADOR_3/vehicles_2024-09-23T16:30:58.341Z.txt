@@ -1,0 +1,3 @@
+{"licensePlate":"YPYPN8UF","vehicleCategory":"A","operator":"OPERADOR_3"}
+{"licensePlate":"RN5ZXO3K","vehicleCategory":"D","operator":"OPERADOR_3"}
+{"licensePlate":"N34F22I","vehicleCategory":"D","operator":"OPERADOR_3"}
