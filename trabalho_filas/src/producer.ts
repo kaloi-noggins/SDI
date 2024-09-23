@@ -37,7 +37,7 @@ async function startProducer() {
         await channel.assertQueue("OPERADOR_1",);
         await channel.assertQueue("OPERADOR_2",);
         await channel.assertQueue("OPERADOR_3",);
-        await channel.assertQueue("NAO_INDENTIFICADO");
+        await channel.assertQueue("NAO_IDENTIFICADO");
 
         console.log("Tudo pronto! Gerando veículos...");
         let generateVehicleCount = 0;
@@ -45,7 +45,7 @@ async function startProducer() {
 
         const producerInterval = setInterval(() => {
             const categoriasVeiculos = ["A", "B", "C", "D", "E"];
-            const operadores = ["OPERADOR_1", "OPERADOR_2", "OPERADOR_3", "NAO_INDENTIFICADO"];
+            const operadores = ["OPERADOR_1", "OPERADOR_2", "OPERADOR_3", "NAO_IDENTIFICADO"];
 
             const newVehicle: Vehicle = {
                 licensePlate: (Math.random() + 1).toString(36).substring(5).toUpperCase(),

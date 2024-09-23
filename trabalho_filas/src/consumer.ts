@@ -25,9 +25,9 @@ const OPERADOR_2_PRICES: OperatorPrices = JSON.parse(process.env.OPERADOR_2_PRIC
 const OPERADOR_3_PRICES: OperatorPrices = JSON.parse(process.env.OPERADOR_3_PRICES!)
 
 /**
- * Custos do operado NAO_INDENTIFICADO
+ * Custos do operado NAO_IDENTIFICADO
  */
-const NAO_INDENTIFICADO_PRICES: OperatorPrices = JSON.parse(process.env.NAO_INDENTIFICADO_PRICES!)
+const NAO_IDENTIFICADO_PRICES: OperatorPrices = JSON.parse(process.env.NAO_IDENTIFICADO_PRICES!)
 
 /**
  * Data de início da execução do programa
@@ -84,10 +84,10 @@ function writeConsumerLog(vehicle: Vehicle, OPERATOR_QUEUE_NAME: Vehicle["operat
             stats[vehicle.vehicleCategory].vehiclesCount += 1;
             stats[vehicle.vehicleCategory].tollCount += OPERADOR_3_PRICES[vehicle.vehicleCategory];
             break;
-        case 'NAO_INDENTIFICADO':
-            stats.totalToll += NAO_INDENTIFICADO_PRICES[vehicle.vehicleCategory];
+        case 'NAO_IDENTIFICADO':
+            stats.totalToll += NAO_IDENTIFICADO_PRICES[vehicle.vehicleCategory];
             stats[vehicle.vehicleCategory].vehiclesCount += 1;
-            stats[vehicle.vehicleCategory].tollCount += NAO_INDENTIFICADO_PRICES[vehicle.vehicleCategory];
+            stats[vehicle.vehicleCategory].tollCount += NAO_IDENTIFICADO_PRICES[vehicle.vehicleCategory];
             break;
     }
 
@@ -133,9 +133,9 @@ async function startConsumer(OPERATOR_QUEUE_NAME: Vehicle["operator"]) {
 }
 
 // Recebe o nome da fila que será consumida atráves da linha de comando
-if (process.argv[2] && ["OPERADOR_1", "OPERADOR_2", "OPERADOR_3", "NAO_INDENTIFICADO"].some(opearador => opearador == process.argv[2])) {
+if (process.argv[2] && ["OPERADOR_1", "OPERADOR_2", "OPERADOR_3", "NAO_IDENTIFICADO"].some(opearador => opearador == process.argv[2])) {
     console.log(`Operador selecionado: ${process.argv[2]}`)
     startConsumer(process.argv[2] as Vehicle["operator"])
 } else {
-    console.log("Por favor forneça um nome válido para a fila do operador.\nNomes válidos: OPERADOR_1, OPERADOR_2, OPERADOR_3, NAO_INDENTIFICADO")
+    console.log("Por favor forneça um nome válido para a fila do operador.\nNomes válidos: OPERADOR_1, OPERADOR_2, OPERADOR_3, NAO_IDENTIFICADO")
 }

@@ -1,7 +1,7 @@
 export interface Vehicle {
     licensePlate: string
     vehicleCategory: "A" | "B" | "C" | "D" | "E"
-    operator: "OPERADOR_1" | "OPERADOR_2" | "OPERADOR_3" | "NAO_INDENTIFICADO"
+    operator: "OPERADOR_1" | "OPERADOR_2" | "OPERADOR_3" | "NAO_IDENTIFICADO"
 }
 
 export interface OperatorPrices {

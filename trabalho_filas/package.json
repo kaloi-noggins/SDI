@@ -9,7 +9,7 @@
     "consumer:OPERADOR_1": "node build/consumer.js OPERADOR_1",
     "consumer:OPERADOR_2": "node build/consumer.js OPERADOR_2",
     "consumer:OPERADOR_3": "node build/consumer.js OPERADOR_3",
-    "consumer:NAO_INDENTIFICADO": "node build/consumer.js NAO_INDENTIFICADO"
+    "consumer:NAO_IDENTIFICADO": "node build/consumer.js NAO_IDENTIFICADO"
   },
   "author": "kalyl henings",
   "license": "GPL-3.0-only",
