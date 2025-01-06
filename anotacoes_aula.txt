@@ -1,0 +1,577 @@
+aula 1
+Desafios de sistemas distribuidos
+	heterogeneo
+	sistemas abertos
+	escalabilidade
+		horizontal/vertical
+		hardware/software
+		geográfica 
+	segurança
+		dados
+			software seguro
+		   	hardware seguro
+		   		eg: Intel SGX
+		ações
+	concorrência
+		resolvido com software
+		pode ser auxiliado com hardware
+			eg: GPS (timestamp do satélite)
+	falhas
+		detecção de falhas
+			algumas falhas podem ser detectadas
+			outras não
+		mascaramento de falhas
+			retransmissão
+			RAID
+		tolerar falhas
+			replicação/redundância de software e hardware
+		recuperação de falhas
+			rollback
+			pode deixar o sistema temporariamente bizantino durante processo de 
+			volta ao último estado consistente conhecido  
+		
+		sistemas SEMPRE falham, eventualmente
+		disponível -> de pé
+		confiável -> de pé e respondendo corretamente
+		SLA (service level agreement)
+			disponiblidade
+				MBTF -> tempo médio entre falhas (hardware)
+				MTTR -> tempo médio de recuperação de falhas
+			confiabilidade
+		IaaS -> infrastructure as a service
+			Oferecer processos e sistemas operacionais
+		falhas bizantinas
+			falha que não faz o sistema parar
+			difícil de detectar
+			pode levar um sistema a um estado não recuperável
+		falhas parada
+			falha que faz com que o serviço para de funcionar
+			fácil de ser detectada
+			processo
+				memória
+			rede
+		falha de omissão
+			rede se omitiu em sua tarefa
+			descarte de pacotes
+				erro de hardware
+				buffer cheio
+				detectada ou pela falta de resposta (timeout) ou pelo aviso via ICMP
+	
+	transparência
+		acesso
+		localização
+			eg: dns
+		migração
+		realocação
+		replicação
+		concorrência
+		falha
+			eg: confiar no TCP
+		persistência
+			eg: confiar no SO
+			
+==============================================
+aula 2
+Modelos de sistemas distribuidos
+	dificuldades
+		modos de uso distintos
+			variação da carga
+			conexão e desconexão de nós
+		variedade de ambientes
+	problemas internos
+		relógio
+		atualizações conflitantes
+	ameaças externas
+		sigilo dos dados
+		negação de serviço
+=====================================
+aula 3
+modelos
+	físico
+		poucos computadores
+		SDI primitivos, entre os anos 70 e 80, de 10 a 100 nós em rede local
+		crescimento da internet, padrões CORBA e WWW
+		ler o livro
+	arquitetural
+		elementos arquiteturais
+			entidades
+				síncronas
+				assincronas
+				objetos
+				componentes
+				serviços web
+			paradigmas de comunicação
+				entre processos
+					soquetes
+				protocolos de requisição resposta
+					eg HTTP
+				invocação remota
+					comunicação síncrona, sem um intermediário, via socket
+					Remote Procedure Call (RPC)
+					Remote Method Invocation (equivalente java de RPC)
+				invocação indireta
+					- comunicação assíncrona, atraves de um intermediário,
+					  que distribui mensagens por um meio
+					- comunicação em grupo	
+					- publish-subscribe
+					- message queues
+					- espaço de tuplas
+					- memória compartilhadas
+			padrões arquitetônico
+				camadas lógicas (layers)
+				camadas físicas (tiers)
+				clientes leves (virtual network computing (VNC))
+				proxies
+				brokers e reflexão
+	fundamental
+=====================================
+aula 4
+modelos
+	fundamental
+		modelo de interação
+			infrastructure as code
+		modelo de falhas
+			pepperland (max - min + 1)
+		modelo de segurança
+		
+- nuvem(cloud) computacional
+	- gerenciamento de cima pra baixo
+- névoa(fog) computacional
+	- gerenciamento de cima pra baixo
+	- aproximação dos data centers para os clientes
+	- visa diminuir latência
+- borda(edge) computacional
+	- gerencialmente de baixo pra cima
+	- usa recursos da instituição para aproximar os dados e diminuir latência
+	
+#comunicação entre processos
+	- camadas de rede
+		- modelo osi
+	- encapsulamento
+	- formas de comunicação
+		- udp
+			- passagem de mensagem
+			- sem hanshsake
+			- sem garantias
+		- tcp
+			- protocolo orientado a conexão
+			- fluxo de bytes
+	- modelos de falha de comunicação do udp
+		- falha de omissão
+		- falha de ordenação
+	- ping
+		- icmp (protocolo de rede)
+		- udp
+	
+	- multicast ip
+		- permite o envio de um único datagrama io para um conjunto de computadores que forma
+		  um grupo de multicast
+		- ex de uso: monitor de rede
+			- falhas
+			
+	- TRABALHO 1
+		- tema: multicast IP
+		- vai ta no moodle descrição completa
+=====================================
+aula 5
+- stack
+	1. applications, services
+	2. middleware layers
+		2.1. RMI, RPC
+		2.2. request-reply protocol, marshalling and external data representation
+	3. UDP e TCP
+	
+- invocação remota
+	- RPC
+		- remote procedure call
+		- tipos de mensagem rpc
+			- R: request
+			- RR: request, reply
+			- RRA: request, reply, acknowledge reply
+		- simples
+	- RMI
+		- remote method invocation
+		- classe abstrata
+		- aponta para uma referência que pode ser remota
+		- arquitetura
+			- camada 1: client -> stubs
+			- camada 1: server -> skeletons
+			- camada 2: RMI interfae layer
+			- camada 3: transport layer
+	- request-reply protocol
+		- ack
+	- IDL
+		- interface definition language
+		- linguagem usada para definir interfaces de comunicação entre clientes e servidores
+		- ex: WSDL
+	- Modelo de Objetos
+		- Coleta de lixo em um sistema de objetos distribuiídos
+		- Exceções
+=====================================
+aula 6
+-Serviço Web	
+	- Fornece uma interface de serviço que permite que clientes e servidores interajam
+		- geralmente formatadas em xml ou json e transmitidas por http(s)
+	- Caracterizado por:
+		- descrição das operação via IDL (interface definition language)
+	- Exemplos de áreas d
+		- business to bussiness
+	- URI vs URL vs URN
+		- XSD
+		- DTD
+		- XML
+	- IDL
+		- WSDL
+		- SOAP (Simple Object Access Protocol)[https://en.wikipedia.org/wiki/SOAP]
+	- VXDL
+		- https://repositorio.ufsm.br/handle/1/5346
+		
+class -> ClientPublisher
+	endpoint uri/start
+tudo dentro do trycatch -> impl
+
+=====================================
+aula 7 Comunicação Indireta
+- acoplamento forte
+	- localização
+		- solução por proxy
+		- solução de "avisar o roteador"
+	- temporal
+		- solução de buffer para salvar informações
+- tecnicas de comunicação indireta
+	- comunicação em grupo
+	- sistema publish-subscribe
+	- sistema de fila de mensagens
+	- memória compartilhada
+- desacomplamento espacial
+- desacoplamento temporal
+- contrapartida
+	- sobrecarga por acréscimo de indireção
+	- aumento da complexidade do gerenciamento
+- decorar tabela do slide 5 (cai na prova, segundo Piegas)
+
+- Comunicação em grupo
+	- remetente não conhece a identidade dos destinatários
+	- é uma abstração em relação a comunincação multicast
+		- pode ser implementado sobre multicast ip (rede local)
+		- pode ser implementado sobre uma rede de sobreposição equivalente
+	- áreas de aplicação
+		- disseminação de informação de maneira confiável para um numero grande de clientes
+		- suporte de aplicativos colaborativos a fim de preservar visão comum entre usuários
+		  (eg. jojos online)
+		- suporte a estratégias de tolerância de falhas
+		  (eg. implementação de servidores replicados)
+		- monitaramento e gerenciamento de sistemas, como balanceamento de carga
+	- pode ser constituido por processos (semelhante a soquetes)
+	- pode ser constituido por objetos (semelhante a RPC ou RMI)
+	- constituição de um grupo
+		- grupos abertos e fechados
+		- grupos sobrepostos e não sobrepostos
+		- sistemas sincronos e assincronos
+
+- publish-subscribe
+	- publicadores divulgam eventos
+	- assinantes que tem interesse em algum tópico assinam esses toópicos
+	- assinantes recebem notificações quando
+	- arquitetura (slide 20)
+		- redes de sobreposição: propaga informação
+		- roteamento do evento: controla informação propagada
+		
+=====================================
+aula 8 MPI (message passing interface)
+- Computação de alto desempenho (HPC)
+- SPMD
+	- single program multiple data
+- MPMD
+	- multiple programa multiple data
+- Flags de otimização
+- MPI
+	- interface de comunicação
+	- mpic
+	- mpirun
+=====================================
+aula 9 DSM (memória compartilhada distribuída) e Filas de Mensagens
+- DSM
+	- abstração para compartilhar dados entre computadores que não partilham memória física
+	- memória única, compartilhada entre os diferentes computadores
+		- espaço de endereçamento composto por toda a área de armazenamento volátil de todos
+	  	  os computadores da rede
+	- comunicação via espaço de tuplas
+		- comunicação generativa (?)
+- Filas de Mensagens
+	- desacoplamento temporal e espacial
+	- comunicação 1:1
+	- orientado a troca de mensagens
+- Trabalho de Filas
+	- gerador de carga
+		- faz mensagens
+	- tópicos de interesse
+=====================================
+aula 10 Revisão para P1
+
+Questão 1:
+	- Justificar, sem usar coringas, como "qualquer" como justificativa. Citar exemplos
+
+Questão 2:
+	- Metade da nota para definição
+	- Metade da nota para exemplo
+	- Falhas arbitrárias = falha bizantina
+	
+Questão que iria fazer e não fez:
+	contador de anos
+		98
+		99
+		00 -> falha bizantina
+		01
+
+Questão 3:
+	- atraso e variação de tempo
+	- assincrono
+	
+Questão 4:
+	- estudar RMI de java
+
+Questão 5:
+	- Comunicação síncrona
+		- Acomplamento temporal
+		- Respostas dentro de um intervalo de tempo esperado
+
+- Prova 1 vai ser mais difícil que o exemplo
+
+- Desacoplamento espacial
+	- mudança de antena de celular durante percurso exemplo de desacoplamento espacial
+	- tcp exemplo de acoplamento espacial
+	
+- localização do sistema distribuido
+	- middleware
+	
+- elementos arquitetônicos
+	- Entidades
+	- Paradigma de comunicação
+	- Padrões arquitetônicos
+
+=====================================
+aula 11 Sistemas de Arquivos Distribuídos
+Sistema de arquivos
+	- Abstrai a escrita e leitura de arquivos e blocos em dispositivos
+	- Organização hierárquica
+	- Padrão POSIX
+	- originalmente desenvolvidos para servidores centralizados e clientes desktops
+Sistema de arquivos distribuiídos
+	- permite aos programas acessarem arquivos remotos como se fossem locais
+	- clientes acessam arquivos de qualquer ponto da rede
+	- desempenho e segurança deve ser compatíveis com arquivos locais
+	- desafios:
+		- balanceamento de carga
+		- confiabilidade
+		- disponibilidade
+		- segurança
+	- implementação baseada em POSIX
+		- algumas operações como link não são possíveis de implementar num contexto remoto
+	- Arquitetura do serviço de arquivos
+		 - flat file service
+		 - serviço de diretório
+		 - modulo de cliente
+Sistemas de armazenamento na nuvem
+
+=====================================
+aula 12 Sincronização de Relógios
+- O que é tempo?
+	- brisa filosófica
+- Introdução
+	- relação de tempo entre eventos
+	- transações
+	- variação de tempo dentro de um intervalo de precisão aceitável
+	- foco em ordem de ocorrência de eventos e se há causa entre eles
+- Sistema airflow
+- Modelagem
+	- NÃO HÁ RELÓGIO GLOBAL
+	- rede é único meio de comunciação
+		- não há ponteiro
+	- considerando
+		- p: conjunto de processos
+		- N: numero de processos
+		- pi: i-esimo processo do conjunto i = {1,2,3,...,N}
+		- pi executa em um único processador e não possui acesso a memoria compartilhada
+		- define-se si como o estado de pi
+			- si = {dados em memoria, dados nos registradores,
+				dados na placa de rede}
+			- si é constituida pelos valores de suas variáveis
+			- si altera-se ao longo da execução de pi
+		- pi executam uma série de ações comunicando-se atraves de send e receive
+		- operações ou comunicações transforman os estados si dos processos
+		- mudanças de estado de um processo é definido como um evento e 
+		- a sequencia de eventos pode ser denotada por e -> e'
+		- o histórico do processo pode ser definido:
+			History(pi) = h(i) = <e0,e1,e2,e3,...>
+	- sincronização interna
+		- algoritmo de berkley
+	- sincronização externa
+		- algoritmo de christian
+	- relógio de hardware e ajustes de software para aproximar
+
+=====================================
+aula 13 Tempo Lógico
+- sequencia de eventos
+	- uma sequencia de eventos do ponto de vista de um unico processo 
+	  podem ser ordenados pelos tempos dados pelo relogio logico
+	- Lamport demonstrou que não é possível sincronizar perfeitamente relógios físicos
+	- de forma geral, não se pode usar tempo físico para descobrir a ordem de qualquer par
+	  de eventos 
+- sincronização baseada em relógio lógico
+- relação "acontece antes" (->)
+- relogio lógico de lamport
+	- Notação: Li
+	- cada processo mantem seu próprio relógio
+	- é uma progreção aritimética
+	- timestamp de lamport
+		- Denotamos o timestamp do evento e em pi como Li(e)
+	- timestamps vetoriais
+problema A:
+	p0(10): 10 -> 20 -> 30 -> 40 -> max(40,29) + 10 = 50 -> 60 -> 70** 
+	p1(05): 5 -> 10 -> max(10,14) + 5 = 19 -> 24 -> 29**
+	p2(02): 2 -> max(10,2) + 2 = 12 -> 14 -> max(30,14) + 2 = 32 -> 34 -> max(60,34) + 2 = 62 -> 64**
+
+problema B:
+	p0(10): 10 -> 20 -> 30 -> 40 -> 50 -> 60 -> 70 -> max(80,66) + 10 = 90 -> 100**
+	p1(08): 8 -> 16 -> max(16,42) + 8 = 50 -> 58 -> 66 -> 
+	p2(04): max(4,30) + 4 = 34 -> 38 -> 42 -> max(
+	p3(20): max(20,40) + 20 = 60 -> 80 -> 100 -> 120 -> 140 -> 160**
+	p4(15): max(15,20) + 15 = 35 -> 50 -> 65 -> max(65,100) + 15 = 115 -> 130 -> max(130,120) + 15 = 135 -> 150**
+
+=====================================
+aula 14 Estado Global
+- verificação de um estado global
+	- coleta de lixo distribuída
+	- detecção de dealock distribuída
+	- detecção de termino distribuída
+	- depuração distribuída
+- problema do estado global
+- modelagem de estado global
+- corte consistente
+- algoritmo do instantâneo de chandy e lamport
+	- objetivo: determinar os estados globais de sistemas distribuiídos
+	
+=====================================
+aula 15 Replicação
+- MBTF
+- MTTR
+- replicar
+- migrar
+	- fria
+		- para o processo, realiza uma cópia para outra máquina, reinicia o processo
+	- quente
+		- com o processo funcionando, sincroniza memória com réplica, e depois de um mínimo
+		  delta de memória, para processo no original, e inicia replica.
+- elasticidade
+	- vertical
+	- horizontal
+- fotos na galeria
+
+=====================================
+aula 16 Exclusão Mútua Distribuída e Eleição
+- Exclusão Mútua Distribuída
+	- Usado para evitar interferência e garantir consistência entre processos ao acessar recursos
+	  compartilhados
+	- Detectror de falhas
+	- Protocolo para executar
+	- Requisitos
+		- Segurança
+		- Subsistência
+			- Sem deadlock
+			- Sem inanição
+		- Ordenação
+	- Algoritmos
+		- Algoritmo do servidor central
+			- Modo mais simples
+		- Algoritmo baseado em anel
+			- Distributed Hash Table
+		- Algoritmo usando multicast e relógios lógicos
+		- Algoritmo de Maekawa
+- Eleição
+	- Utilizado para temporariamente centralizar a tomada de decisão de um algoritmo distribuido
+- Ler capitulo do livro (pode pular Maekawa)
+
+=====================================
+aula 17 Consenso
+- Problema geral
+	- processos concordarem com um valor após um ou mais processos terem proposto qual deve ser
+	  esse valor
+- Requisitos
+	- termino
+	- acordo
+	- integridade
+- Problema dos generais bizantinos
+	- 2/3 + 1 dos processos não falham -> existe solução de ação comum
+	- 1/3 ou mais dos processos falham -> não existe solução
+- slide 25 dos slides de Coordenação e acordos
+	- Caiu no exame
+
+=====================================
+Aula 18 Estudo de caso Google
+- Empresas antes do google
+	- icq
+	- cade.com.br
+	- mirc
+- Desafios
+	- escalabilidade
+	- volume de dados
+		- padrão
+			- como esses dados serão acessados?
+			- serão majoritariamente de escrita ou leitura?
+			- pesquisa
+				- indexar pequenas porções
+	- abertura
+	- * desempenho: 0.2s de resposta
+- Serviços prestados
+	- esquadrinhamento (crawnling)
+	- indexação
+	- classificação
+		- PageRank
+			- DAG
+			- Quanto mais arestas apontando para sua página, melhor seu ranking
+			- Você também pode simplesmente pagar o google para aumentar o rank
+	- ler artigo: Anatomia de um site de busca
+- Modelo físico
+	- utilização de um grande números de pcs comuns
+	- com essa infra, google considera que modelo físico irá falhar
+- PUE (Power Usage Effectiveness)
+
+=====================================
+Aula 19 Estudo de caso Google Arquitetura Global do Projeto Google
+- Arquitetura de Sistema Global
+	- ULS
+	- Paradigmas de comunicação
+		- protocol buffers
+		- publish subscribe
+			- PubSubHubbub
+	- Armazenamento distribuído
+		- GFS (google file system)
+			- arquivos grandes (64MB)
+			- anexa no final de maneira fácil
+		- Chubby
+			- arquivos menores
+		- Bigtable
+		- Spanner
+	- Computação distribuída
+		- MapReduce
+		- Sawzall
+=====================================
+Aula 20 Estudo de caso Google Arquitetura Global do Projeto Google: Serviços de Dados e Coordenação
+- Arquitetura de Sistema Global
+	- Armazenamento distribuido
+		- GFS (google file system)
+			- arquivos grandes (64MB)
+			- anexa no final de maneira fácil
+		- Chubby
+			- Exclusão mutua
+			- sistema para arquivos pequenos
+			- eleição
+				- paxos
+			- dns
+		- Bigtable
+			- serviço complementar ao GFS (indexação e pesquisa)
+	- Computação distribuída
+		- MapReduce
+		- Sawzall	
+			

@@ -1,2 +1,0 @@
-{"licensePlate":"IRL332B","vehicleCategory":"C","operator":"NAO_IDENTIFICADO"}
-{"licensePlate":"FOVCVRNJ","vehicleCategory":"A","operator":"NAO_IDENTIFICADO"}
